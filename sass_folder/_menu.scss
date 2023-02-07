@@ -1,0 +1,226 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: $light_purple;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: $basique_font;
+}
+
+.contener__logo {
+    width: 52px;
+    height: 52px;
+    margin-bottom: 80px;
+}
+
+.contener {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    // display: none;
+}
+
+@mixin buttons ($btnw, $btnh ) {
+    width: $btnw;
+    height: $btnh;
+    padding: 0;
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: $uppercase;
+    border-radius: 20px;
+    border: 2px solid black;
+    box-shadow: 0px 10px 0px black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+
+@mixin titles {
+    font-size: 20px;
+    color: $light_purple;
+    text-transform: $uppercase;
+}
+
+@mixin ruletexte {
+    margin-left: 28px;
+    font-weight: 500;
+    font-size: 16px;
+    margin-bottom: 11px;
+    position: relative;
+}
+
+@mixin beforetextrule {
+    position: absolute;
+    left: -20px;
+    font-weight: 700;
+}
+
+.btn1 {
+    background-color: $orange;
+    @include buttons(335px, 72px)
+}
+
+.btn2 {
+    background-color: $white;
+    @include buttons(335px, 72px)
+}
+
+.rulesection {
+    display: none;
+    width: 75%;
+    height: 586px;
+    background-color: $white;
+    border-radius: 40px;
+    border: 3px solid black;
+    box-shadow: 0px 10px 0px black;
+    padding: 25px;
+
+    &__title {
+        margin: 30px;
+        font-size: 56px;
+        text-align: center;
+        text-transform: $uppercase;
+    }
+
+    &__objective {
+        margin-bottom: 16px;
+        @include titles
+    }
+
+    &__howtowin {
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    &__howtoplaybox {
+
+        &__Redgoes {
+            @include ruletexte
+        }
+
+        &__Redgoes::before {
+            content: "1";
+            @include beforetextrule
+        }
+
+        &__Playersmust {
+            @include ruletexte
+        }
+
+        &__Playersmust::before {
+            content: "2";
+            @include beforetextrule
+        }
+
+        &__Thegame {
+            @include ruletexte
+        }
+
+        &__Thegame::before {
+            content: "3";
+            @include beforetextrule
+        }
+
+        &__Thestarter {
+            @include ruletexte
+        }
+
+        &__Thestarter::before {
+            content: "4";
+            @include beforetextrule
+        }
+    }
+
+    &__howtoplaybox__title {
+        margin-top: 33px;
+        margin-bottom: 16px;
+        @include titles
+    }
+
+    &__checkedButton {
+        border: 0;
+        background: 0;
+        width: 64px;
+        height: 64px;
+        transform: translate(165%, 25%);
+    }
+}
+
+
+@media screen and (min-width: 768px) {
+    body {
+        background-color: $black_purple;
+    }
+
+    .contener {
+        width: 480px;
+        height: 435px;
+        background-color: $light_purple;
+        border: black solid 2px;
+        border-radius: 30px;
+
+        &__logo {
+            margin-bottom: 50px;
+        }
+    }
+
+    .btn1 {
+        background-color: $orange;
+        width: 400px;
+        height: 72px;
+        @include buttons(400px, 72px)
+    }
+
+    .btn2 {
+        background-color: $white;
+        @include buttons(400px, 72px)
+    }
+
+    .rulesection {
+        // display: none;
+        width: 480px;
+        height: 517px;
+
+        &__objective {
+            margin-left: 20px;
+        }
+
+        &__howtowin {
+            width: 412px;
+            height: 60px;
+            margin-left: 20px;
+        }
+
+        &__howtoplaybox {
+            margin-left: 20px;
+        }
+
+        &__checkedButton {
+            transform: translate(320%, 2%);
+        }
+    }
+}
+
+@media screen and (min-width: 1440px) {
+
+    .btn1:hover,
+    .btn2:hover {
+        box-shadow: 0px 10px 0px $black_purple;
+    }
+
+    .rulesection__checkedButton {
+        transform: translate(320%, 15%);
+        cursor: pointer;
+    }
+}
